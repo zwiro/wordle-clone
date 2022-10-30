@@ -1,0 +1,179 @@
+body {
+    height: max(100vh, 40rem);
+    min-width: 23.5rem;
+    background-color: #121213;
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-block: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid #818384;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-weight: 700;
+    text-shadow: 0px 0px 13px rgba(129, 131, 132, 1);
+    cursor: default;
+}
+
+.msg-wrapper {
+    background-color: #f1f1f1;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    transition: opacity 500ms;
+    opacity: 0;
+    cursor: default;
+    margin-top: 1rem;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+
+main {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 5rem;
+}
+
+.display-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cell {
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid #818384;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 23.5rem;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.key {
+    width: 1.89rem;
+    height: 3rem;
+    background-color: #818384;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+#ENTER,
+#DELETE {
+    width: 2rem;
+    font-size: 0.5rem;
+}
+
+.key-bg {
+    background-color: var(--bg-clr);
+}
+
+
+.flip {
+    animation: cellFlip 500ms ease-in-out forwards;
+}
+
+.shake {
+    animation: gameboardShake 200ms ease-in-out;
+}
+
+@media(min-width: 700px) {
+    .msg-wrapper {
+        margin-top: 4.5rem;
+    }
+
+    .keyboard-wrapper {
+        width: 30rem;
+    }
+
+    .key {
+        width: 2.5rem;
+    }
+
+    #ENTER,
+    #DELETE {
+        width: 4rem;
+        font-size: 0.75rem;
+    }
+}
+
+@keyframes cellFlip {
+    0% {
+        transform: rotateY(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: rotateY(90deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes gameboardShake {
+
+    0% {
+        transform: translateX(0%);
+    }
+
+    25% {
+        transform: translateX(-5%);
+    }
+
+    50% {
+        transform: translateX(5%);
+    }
+
+    75% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
